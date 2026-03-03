@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Comparison Inquiry | Rest Assured Insurance</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .form-container {
+            max-width: 640px;
+            margin: 140px auto;
+            background: white;
+            padding: 56px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-100);
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        .notice-box {
+            background: var(--gray-50);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--bg);">
+    <header id="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="/" class="logo">
+                    <span class="material-symbols-outlined">shield_person</span>
+                    Rest Assured Insurance
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/life.html">Life Insurance</a></li>
+                    <li><a href="/carriers.html">Our Carrier Network</a></li>
+                    <li><a href="/about.html">About & Standards</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="form-container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <div class="badge">Professional Consultation</div>
+                <h2 style="margin-bottom: 16px;">Plan Comparison Inquiry</h2>
+                <p style="color: var(--text-muted);">Rest Assured Insurance uses a human-first advisory model. A
+                    state-licensed professional will review your inquiry within one business day.</p>
+            </div>
+
+            <div class="notice-box">
+                <p><strong>Standards Notice:</strong> Every consultation is handled by a licensed agent. We do not use
+                    automated claim bots or enrollment scripts. Your data is handled with HIPAA-conscious security and
+                    will not be sold to third parties.</p>
+            </div>
+
+            <form id="quote-form">
+                <div class="form-group">
+                    <label for="coverage-type">Primary Coverage Interest</label>
+                    <select id="coverage-type" required>
+                        <option value="">Select a coverage area...</option>
+                        <option value="life">Life Insurance Analysis</option>
+                        <option value="health">Health Plan Comparison</option>
+                        <option value="auto">Auto & Home Evaluation</option>
+                        <option value="group">Small Business Solutions</option>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-cols: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" placeholder="John" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" placeholder="Doe" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Professional Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="zip">Zip Code (For State Compliance)</label>
+                    <input type="text" id="zip" placeholder="10001" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Considerations (Optional)</label>
+                    <textarea id="notes" rows="3"
+                        placeholder="Specific goals or current carrier concerns..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; padding: 18px; margin-top: 10px; font-size: 1.05rem;">Request Professional
+                    Consultation</button>
+            </form>
+
+            <div
+                style="margin-top: 40px; border-top: 1px solid var(--gray-200); padding-top: 32px; font-size: 0.75rem; color: var(--gray-500); line-height: 1.6;">
+                <p><strong>Privacy & Compliance:</strong> By submitting this inquiry, you agree to being contacted by a
+                    licensed professional at Rest Assured Insurance. Coverage availability and premiums vary by state.
+                    This is an inquiry for comparison only and does not guarantee carrier approval or auto-enrollment in
+                    any plan.</p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        document.getElementById('quote-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your inquiry has been received. A state-licensed professional will review your requirements and provide a carrier comparison within one business day.');
+        });
+    </script>
+</body>
+
+</html>
