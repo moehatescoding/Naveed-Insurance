@@ -3,25 +3,42 @@ const header = document.getElementById('header');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    header.style.padding = '8px 0';
-    header.style.background = 'rgba(255, 255, 255, 0.9)';
-    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+    header.classList.add('scrolled');
   } else {
-    header.style.padding = '20px 0';
-    header.style.background = 'rgba(255, 255, 255, 0.75)';
-    header.style.boxShadow = 'none';
+    header.classList.remove('scrolled');
   }
+});
+
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobile-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (mobileToggle) {
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = mobileToggle.querySelector('span');
+    icon.textContent = navLinks.classList.contains('active') ? 'close' : 'menu';
+  });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    const icon = mobileToggle.querySelector('span');
+    if (icon) icon.textContent = 'menu';
+  });
 });
 
 // Reveal components on scroll
 const reveal = () => {
   const reveals = document.querySelectorAll('.feature-card, .hero-text, .hero-image');
-  
+
   reveals.forEach(el => {
     const windowHeight = window.innerHeight;
     const elementTop = el.getBoundingClientRect().top;
     const elementVisible = 150;
-    
+
     if (elementTop < windowHeight - elementVisible) {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
